@@ -8,9 +8,6 @@ end
 # Enable transience for cleaner command line history
 enable_transience
 
-# Initialize asdf version manager for managing runtime versions
-source /home/linuxbrew/.linuxbrew/bin/asdf
-
 # Set the default system editor to nvim
 set -gx EDITOR nvim
 
