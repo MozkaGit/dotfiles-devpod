@@ -9,7 +9,11 @@ mkdir -p "$XDG_CONFIG_HOME"/nixpkgs
 ln -sf "$PWD/nvim" "$XDG_CONFIG_HOME"/nvim
 ln -sf "$PWD/.inputrc" "$HOME"/.inputrc
 ln -sf "$PWD/.tmux.conf" "$HOME"/.tmux.conf
+ln -sf "$PWD/.tmux.reset.conf" "$HOME"/.tmux.reset.conf
 ln -sf "$PWD/config.nix" "$XDG_CONFIG_HOME"/nixpkgs/config.nix
+
+# Install TPM plugin for TMUX
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # Fetch and set up Zsh configuration files from my main dotfiles repo
 
@@ -22,6 +26,7 @@ curl -o "$HOME/.zprofile" https://raw.githubusercontent.com/mischavandenburg/dot
 # Nix is broken due to timeouts, falling back to brew
 packages=(
   fd
+  bat
   ripgrep
   npm
   lazygit
@@ -30,6 +35,7 @@ packages=(
   fluxcd/tap/flux
   k9s
   kubectx
+  kubens
   direnv
 )
 
