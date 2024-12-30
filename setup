@@ -12,9 +12,7 @@ ln -sf "$PWD/.inputrc" "$HOME"/.inputrc
 ln -sf "$PWD/.tmux.conf" "$HOME"/.tmux.conf
 ln -sf "$PWD/tmux.reset.conf" "$HOME"/tmux.reset.conf
 ln -sf "$PWD/config.nix" "$XDG_CONFIG_HOME"/nixpkgs/config.nix
-ln -sf "$PWD/fish/config.fish" "$XDG_CONFIG_HOME"/fish/config.fish
-ln -sf "$PWD/fish/completions/asdf.fish" "$XDG_CONFIG_HOME"/fish/completions/asdf.fish
-ln -sf "$PWD/fish/completions/docker.fish" "$XDG_CONFIG_HOME"/fish/completions/docker.fish
+ln -sf "$PWD/config.fish" "$XDG_CONFIG_HOME"/fish/config.fish
 ln -sf "$PWD/starship.toml" "$XDG_CONFIG_HOME"/starship.toml
 
 # Install TPM plugin for TMUX
