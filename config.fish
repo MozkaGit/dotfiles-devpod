@@ -13,3 +13,6 @@ set -gx EDITOR nvim
 
 # Add brew to PATH
 eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+
+# Add Direnv integration
+eval "$(direnv hook bash)"
