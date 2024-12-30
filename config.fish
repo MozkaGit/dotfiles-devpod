@@ -15,7 +15,7 @@ set -gx EDITOR nvim
 eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
 # Add Direnv integration
-eval "$(direnv hook bash)"
+eval "$(direnv hook fish)"
 
 # Set TERM environment variable for Ghostty
 set -gx TERM xterm-256color
