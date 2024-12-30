@@ -4,21 +4,26 @@
 export XDG_CONFIG_HOME="$HOME"/.config
 mkdir -p "$XDG_CONFIG_HOME"
 mkdir -p "$XDG_CONFIG_HOME"/nixpkgs
+mkdir -p "$XDG_CONFIG_HOME"/fish/completions
 
 # Create symlinks for existing configurations
 ln -sf "$PWD/nvim" "$XDG_CONFIG_HOME"/nvim
 ln -sf "$PWD/.inputrc" "$HOME"/.inputrc
 ln -sf "$PWD/.tmux.conf" "$HOME"/.tmux.conf
-ln -sf "$PWD/.tmux.reset.conf" "$HOME"/.tmux.reset.conf
+ln -sf "$PWD/tmux.reset.conf" "$HOME"/tmux.reset.conf
 ln -sf "$PWD/config.nix" "$XDG_CONFIG_HOME"/nixpkgs/config.nix
+ln -sf "$PWD/fish/config.fish" "$XDG_CONFIG_HOME"/fish/config.fish
+ln -sf "$PWD/fish/completions/asdf.fish" "$XDG_CONFIG_HOME"/fish/completions/asdf.fish
+ln -sf "$PWD/fish/completions/docker.fish" "$XDG_CONFIG_HOME"/fish/completions/docker.fish
+ln -sf "$PWD/starship.toml" "$XDG_CONFIG_HOME"/starship.toml
 
 # Install TPM plugin for TMUX
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # Fetch and set up Zsh configuration files from my main dotfiles repo
 
-curl -o "$HOME/.zshrc" https://raw.githubusercontent.com/mischavandenburg/dotfiles/main/.zshrc
-curl -o "$HOME/.zprofile" https://raw.githubusercontent.com/mischavandenburg/dotfiles/main/.zprofile
+# curl -o "$HOME/.zshrc" https://raw.githubusercontent.com/mischavandenburg/dotfiles/main/.zshrc
+# curl -o "$HOME/.zprofile" https://raw.githubusercontent.com/mischavandenburg/dotfiles/main/.zprofile
 
 # Install Nix packages from config.nix
 # nix-env -iA nixpkgs.myPackages
@@ -27,15 +32,19 @@ curl -o "$HOME/.zprofile" https://raw.githubusercontent.com/mischavandenburg/dot
 packages=(
   fd
   bat
+  asdf
   ripgrep
   npm
   lazygit
+  tmux
+  starship
   fzf
   kubectl
   fluxcd/tap/flux
   k9s
   kubectx
   kubens
+  helm
   direnv
 )
 
@@ -58,11 +67,11 @@ touch "$HOME/.privaterc"
 
 # Set up completions
 
-midir -p "$HOME/.zfunc
-flux completion zsh > $HOME/.zfunc/_flux
-kubectl completion zsh > $HOME/.zfunc/_kubectl
-helm completion zsh > $HOME/.zfunc/_helm
+#midir -p "$HOME/.zfunc
+flux completion fish > $XDG_CONFIG_HOME/fish/completions/flux.fish
+echo -e "\nsource "(brew --prefix asdf)"/libexec/asdf.fish" >> $XDG_CONFIG_HOME/fish/config.fish
+docker completion fish > $XDG_CONFIG_HOME/fish/completions/docker.fish
 
-echo "Setup complete. Zsh configuration files have been downloaded and set up."
+echo "Setup complete. Fish configuration files have been downloaded and set up."
 
 
