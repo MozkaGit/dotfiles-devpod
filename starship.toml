@@ -50,7 +50,7 @@ contexts = [
 
 [docker_context]
 symbol = '🐳'
-detec_files = ['Dockerfile', 'compose.yaml', 'compose.yml', 'docker-compose.yaml', 'docker-compose.yml']
+detect_files = ['Dockerfile', 'compose.yaml', 'compose.yml', 'docker-compose.yaml', 'docker-compose.yml']
 format = 'via [$symbol$context]($style) '
 style = 'blue bold'
 disabled = false
