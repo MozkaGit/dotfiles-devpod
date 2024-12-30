@@ -16,3 +16,6 @@ eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
 # Add Direnv integration
 eval "$(direnv hook bash)"
+
+# Set TERM environment variable for Ghostty
+set -gx TERM xterm-256color
