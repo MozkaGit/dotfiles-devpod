@@ -33,6 +33,7 @@ packages=(
   asdf
   ripgrep
   npm
+  yazi
   lazygit
   tmux
   starship
