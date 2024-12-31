@@ -32,9 +32,11 @@ packages=(
   bat
   asdf
   ripgrep
+  fx
   npm
   yazi
   lazygit
+  lazydocker
   tmux
   starship
   fzf
